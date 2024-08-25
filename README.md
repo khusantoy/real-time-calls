@@ -1,4 +1,4 @@
-# real_time_video_calls_app_zegocloud
+# Muloqot
 
 A new Flutter project.
 
