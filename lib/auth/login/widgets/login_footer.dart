@@ -18,7 +18,7 @@ class LoginFooter extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text("Don't have an account? "),
+          const Text('Siz yangimisiz? '),
           GestureDetector(
             onTap: onTap,
             child: Text(

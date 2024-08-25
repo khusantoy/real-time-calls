@@ -10,7 +10,7 @@ class ForgotPassword extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: TextButton(
         child: Text(
-          'Forgot password?',
+          'Parolni unutdingizmi?',
           style: context.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
         ),
         onPressed: () {},

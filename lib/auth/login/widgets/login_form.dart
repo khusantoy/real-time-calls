@@ -40,7 +40,7 @@ class _LoginFormState extends State<LoginForm> {
               ShadInputFormField(
                 id: 'email',
                 label: const Text('Email'),
-                placeholder: const Text('Enter your email'),
+                placeholder: const Text('Emailingizni kiriting'),
                 prefix: const Padding(
                   padding: EdgeInsets.all(AppSpacing.sm),
                   child:
@@ -50,6 +50,9 @@ class _LoginFormState extends State<LoginForm> {
                   final email = Email.dirty(v);
                   return email.errorMessage;
                 },
+              ),
+              const SizedBox(
+                height: 10,
               ),
               ValueListenableBuilder(
                 valueListenable: _obscure,
@@ -61,8 +64,8 @@ class _LoginFormState extends State<LoginForm> {
                 builder: (context, obscure, prefix) {
                   return ShadInputFormField(
                     id: 'password',
-                    label: const Text('Password'),
-                    placeholder: const Text('Enter your password'),
+                    label: const Text('Parol'),
+                    placeholder: const Text('Parolingizni kiriting'),
                     prefix: prefix,
                     obscureText: obscure,
                     suffix: ShadButton.secondary(
@@ -95,7 +98,7 @@ class _LoginFormState extends State<LoginForm> {
                   if (!isLoading) {
                     return ShadButton(
                       width: double.infinity,
-                      text: const Text('Login'),
+                      text: const Text('Kirish'),
                       onPressed: () {
                         if (!(_formKey.currentState?.saveAndValidate() ??
                             false)) {
@@ -112,7 +115,7 @@ class _LoginFormState extends State<LoginForm> {
                   }
                   return const ShadButton(
                     width: double.infinity,
-                    text: Text('Please wait'),
+                    text: Text('Iltimos kuting'),
                     enabled: false,
                     icon: Padding(
                       padding: EdgeInsets.only(right: AppSpacing.md),

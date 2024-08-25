@@ -35,10 +35,13 @@ class LoginView extends StatelessWidget {
             const SizedBox(height: AppSpacing.md),
             const Spacer(),
             LoginFooter(
-              text: 'Sign up',
+              text: "Ro'yhatdan o'tish",
               onTap: () {
                 context.read<AuthCubit>().changeAuth(showLogin: false);
               },
+            ),
+            const SizedBox(
+              height: 10,
             ),
           ],
         ),

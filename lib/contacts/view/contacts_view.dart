@@ -32,6 +32,7 @@ class ContactsView extends StatelessWidget {
               }
               return Expanded(
                 child: ListView.builder(
+                  padding: const EdgeInsets.all(8),
                   itemCount: data.length,
                   itemBuilder: (context, index) {
                     final user = data[index];

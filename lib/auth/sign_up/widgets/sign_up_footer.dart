@@ -16,7 +16,7 @@ class SignUpFooter extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Text('Already have an account? '),
+        const Text("Ro'yhatdan o'tganmisiz? "),
         GestureDetector(
           onTap: onTap,
           child: Text(

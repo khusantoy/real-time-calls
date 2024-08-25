@@ -34,11 +34,14 @@ class SignUpView extends StatelessWidget {
             const SizedBox(height: AppSpacing.md),
             const Spacer(),
             SignUpFooter(
-              text: 'Sign in',
+              text: 'Kirish',
               onTap: () {
                 context.read<AuthCubit>().changeAuth(showLogin: true);
               },
             ),
+            const SizedBox(
+              height: 10,
+            )
           ],
         ),
       ),

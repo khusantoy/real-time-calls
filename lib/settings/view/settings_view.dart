@@ -17,40 +17,59 @@ class SettingsView extends StatelessWidget {
         title: const Text('Sozlamalar'),
       ),
       body: AppConstrainedScrollView(
-        child: Column(
-          children: [
-            ...ListTile.divideTiles(
-              context: context,
-              tiles: [
-                ListTile(
-                  title: const Text('Chaqiruvlar'),
-                  subtitle: Text(
-                    'Chaqiruvlarni qabul qilishni boshqaring',
-                    style: context.bodySmall?.apply(color: AppColors.grey),
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            children: [
+              ...ListTile.divideTiles(
+                context: context,
+                tiles: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Card(
+                      color: const Color(0xFFF1F8E8),
+                      child: ListTile(
+                        title: const Text('Chaqiruvlar'),
+                        subtitle: Text(
+                          'Chaqiruvlarni qabul qilishni boshqaring',
+                          style:
+                              context.bodySmall?.apply(color: AppColors.grey),
+                        ),
+                        trailing: StreamBuilder<bool>(
+                          stream: userRepository.canAcceptCalls(),
+                          builder: (context, snapshot) {
+                            final acceptCalls = snapshot.data ?? true;
+                            return Switch(
+                              value: acceptCalls,
+                              onChanged: (canAcceptCalls) =>
+                                  userRepository.changeAcceptCalls(
+                                acceptCalls: canAcceptCalls,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
                   ),
-                  trailing: StreamBuilder<bool>(
-                    stream: userRepository.canAcceptCalls(),
-                    builder: (context, snapshot) {
-                      final acceptCalls = snapshot.data ?? true;
-                      return Switch(
-                        value: acceptCalls,
-                        onChanged: (canAcceptCalls) => userRepository
-                            .changeAcceptCalls(acceptCalls: canAcceptCalls),
-                      );
-                    },
+                  const SizedBox(
+                    height: 10,
                   ),
-                ),
-                ListTile(
-                  title: const Text('Hisobdan chiqish'),
-                  trailing: const Icon(LucideIcons.logOut),
-                  textColor: AppColors.red,
-                  iconColor: AppColors.red,
-                  onTap: () =>
-                      context.read<AppBloc>().add(const AppLogoutRequested()),
-                ),
-              ],
-            ),
-          ],
+                  Card(
+                    color: const Color(0xFFF1F8E8),
+                    child: ListTile(
+                      title: const Text('Hisobdan chiqish'),
+                      trailing: const Icon(LucideIcons.logOut),
+                      textColor: AppColors.red,
+                      iconColor: AppColors.red,
+                      onTap: () => context
+                          .read<AppBloc>()
+                          .add(const AppLogoutRequested()),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
